@@ -1,9 +1,6 @@
-function my_theme_enqueue_styles() {
-    // Enqueue the main stylesheet (style.css)
-    wp_enqueue_style('my-theme-style', get_stylesheet_uri());
-
-    // If you have additional CSS files (like custom.css), you can enqueue them too:
-    // wp_enqueue_style('my-theme-custom-style', get_template_directory_uri() . '/custom.css');
+<?php 
+function krovmont_load_resources() {
+    wp_enqueue_style("bootstrap-css", "https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css");
+    wp_enqueue_style("theme-style", get_template_directory_uri() . "/style.css");
 }
-
-add_action('wp_enqueue_scripts', 'my_theme_enqueue_styles');
+add_action("wp_enqueue_scripts" , "krovmont_load_resources");
