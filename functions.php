@@ -16,4 +16,6 @@ function custom_theme_setup() {
 add_action('after_setup_theme', 'custom_theme_setup');
 ?>
 
+<?php
 require_once get_template_directory() . '/wp-bootstrap-navwalker.php';
+?>
