@@ -1,5 +1,5 @@
 <?php
-/* Template Name: Shop */
+/* Template Name: shop */
 get_header();
 ?>
 <div class="container text-center py-5">

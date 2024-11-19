@@ -1,5 +1,5 @@
 <?php
-/* Template Name: Language */
+/* Template Name: language */
 get_header();
 ?>
 <div class="container text-center py-5">

@@ -1,5 +1,5 @@
 <?php
-/* Template Name: Contact */
+/* Template Name: contact */
 get_header();
 ?>
 <div class="container text-center py-5">
