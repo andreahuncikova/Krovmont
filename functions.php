@@ -1,13 +1,6 @@
 <?php
 // Enqueue Google Fonts, Bootstrap, and theme styles
 function krovmont_load_resources() {
-    // Load Google Fonts
-    wp_enqueue_style(
-        'google-fonts-montserrat', 
-        'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap', 
-        [], 
-        null
-    );
     
     // Load Bootstrap CSS
     wp_enqueue_style(
