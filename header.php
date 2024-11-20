@@ -9,18 +9,13 @@
 </head>
 <body <?php body_class(); ?>>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-            <!-- Left: Logo -->
+        <div class="container-fluid px-5">
+
+            <!-- Left: Logo --> 
             <a class="navbar-brand" href="<?php echo home_url(); ?>">
-                <?php
-                // Display custom logo if set, otherwise show site name
-                if (has_custom_logo()) {
-                    the_custom_logo();
-                } else {
-                    bloginfo('name');
-                }
-                ?>
+                <img src="<?php echo get_template_directory_uri(); ?>/images/krovmont-logo.svg" style="height: 40px;">
             </a>
+
             <!-- Hamburger toggle -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
