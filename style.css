@@ -1,32 +1,1576 @@
-/*
-Theme Name: Krovmont
-Author: Andrea Hunciková
-Description: A custom WordPress theme for Krovmont.
-Version: 1.0
-*/
-
-body {
-    font-size: 16px;
+:root {
+    --dark-bg: #1F2025;
+    --red-accent: #EA2728;
+    --light-bg: #F1F4F5;
+    --cream-bg: #EFEAE4;
+}
+main {
     line-height: 1.5;
     margin: 0;
     padding: 0;
-    background-color: #1F2025;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--light-bg);
+    background-color: var(--dark-bg);
+    font-size: large;
 }
 
-/* Apply Montserrat to the body */
 body {
-    font-family: 'Montserrat', sans-serif;
+    background-color: var(--dark-bg);
+    font-family: 'Montserrat', sans-serif; 
 }
 
-/* Navbar-specific */
-.navbar-brand, 
+header {
+    font-family: 'Montserrat', sans-serif; 
+}
+
+footer {
+    font-family: 'Montserrat', sans-serif; 
+}
+
+h1 {
+    color: var(--red-accent);
+    font-size: 5rem;
+    font-weight: 800;
+}
+
+.container-aboutus {
+    margin-top: 100px;
+}
+
+/* Transparent navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: transparent !important; /* Ensure navbar is transparent */
+    box-shadow: none;
+    color: var(--dark-bg);
+    z-index: 2000; /* Ensure navbar is on top of the video */
+    transition: background-color 0.5s ease-in-out;
+}
+
+
+
+
+/* Make sure the navbar is using flexbox */
+.navbar-nav {
+    display: flex;
+    gap: 30px; /* Adjust this value to your desired gap between items */
+
+}
+.navbar-collapse{
+    z-index: 50;
+}
+
 .navbar-nav .nav-link {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
+    color: var(--light-bg);
+    font-weight: 600;
+    font-size: larger;
 }
 
-/* Headings */
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
+.navbar-nav .nav-link:hover {
+    color: var(--red-accent);
 }
+
+.navbar-scrolled {
+    background-color: var(--cream-bg) !important; /* Dark background when scrolled */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add shadow when scrolled */
+    transition: background-color 0.3s ease-in-out; /* Smooth transition */
+}
+
+.navbar-scrolled .navbar-nav .nav-link {
+    color: var(--black) !important; /* Black text when scrolled */
+}
+
+.navbar-scrolled .svg-color {
+    color: var(--black) !important; /* Black text when scrolled */
+}
+
+.navbar-scrolled .svg-color:hover {
+    color: var(--red-accent) !important; /* Black text when scrolled */
+}
+
+.navbar-scrolled .navbar-nav .nav-link:hover {
+    color: var(--red-accent) !important; /* Black text when scrolled */
+}
+
+.svg-color {
+    color: var(--light-bg);
+}
+
+.svg-color:hover {
+    color: var(--red-accent);
+}
+
+.headlinetwo {
+    font-size: 2.5rem;
+}
+
+.trusted-partners {
+    background-color: var(--dark-bg);
+    color: var(--cream-bg);
+    padding-top: 100px;
+    padding-bottom: 5px
+}
+
+/* Hero section: Make sure the video is not blocked by the navbar */
+.hero-video-container {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Make the video take the full viewport height */
+    overflow: hidden;
+    z-index: 0; /* Ensure video is under the overlay */
+    top: 0; /* Align the video container with the top of the page */
+}
+
+/* Ensure video fills the entire container */
+.hero-video {
+    height: 100%;
+    width: 100%;
+    object-fit: cover; /* Cover the entire container */
+}
+
+/* Hero overlay to darken the video and center content */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--light-bg);
+    z-index: 1; /* Ensure text is above the video */
+    padding: 0 20px;
+}
+
+/* Ensure no padding at the top of the body */
+* {
+    padding-top: 0; /* Remove extra padding for navbar */
+}
+
+.category-text {
+    font-size: 1.5rem;
+    text-decoration: none;
+
+    color: var(--light-bg);
+
+}
+
+.container-category {
+    padding-top: 200px;
+}
+
+.category-icon-item a {
+    text-decoration: none; /* Odstráni podčiarknutie */
+    color: inherit;        /* Zachová farbu textu podľa okolia */
+  }
+
+.category-icon-item {
+    transition: 0.3s;
+}
+
+.category-icon-item:hover {
+    transform: scale(1.1);
+    transition: 0.2s;
+}
+
+.category-text:hover {
+    color: var(--red-accent);
+}
+
+/* Red Background Button */
+.btn-red-bg {
+    background-color: var(--red-accent); /* Red background */
+    color: var(--light-bg); /* Light text color */
+    border: 2px solid var(--red-accent); /* Red border */
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+/* Red Button Hover */
+.btn-red-bg:hover,
+.btn-red-bg:focus {
+    background-color: var(--dark-bg); /* Dark background on hover */
+    color: var(--light-bg); /* Light text color */
+    border-color: var(--dark-bg); /* Dark border on hover */
+}
+
+/* Optional: Add focus outline for accessibility */
+.btn-red-bg:focus {
+    outline: 3px solid var(--red-accent); /* Red outline on focus */
+    outline-offset: 2px;
+}
+
+
+       
+      
+    
+
+
+
+.container-aboutus .row {
+    display: flex;
+    align-items: center; /* Zarovnáva obrázok a text vertikálne */
+}
+
+.container-aboutus img {
+    max-width: 100%; /* Zabezpečí, že obrázok nebude presahovať kontajner */
+    height: auto; /* Zachováva proporcie obrázku */
+}
+
+.about-two {
+    background-color: var(--cream-bg);
+    color: var(--dark-bg);
+}
+
+
+
+
+.container-footer {
+    background-color: var(--cream-bg);
+}
+
+.gallery-image-container {
+    width: 100%; /* Ensure the container is full width */
+    height: 200px; /* Set a fixed height for all images */
+    overflow: hidden; /* Hide any part of the image that overflows */
+    position: relative; /* Make the container position relative for child element positioning */
+}
+
+.gallery-image {
+    width: 100%; /* Make the image fill the width of the container */
+    height: 100%; /* Make the image fill the height of the container */
+    object-fit: cover; /* Ensure the image covers the container without stretching */
+    transition: transform 0.3s ease; /* Smooth transition for zoom effect */
+}
+
+.gallery-image-container:hover .gallery-image {
+    transform: scale(1.1); /* Slight zoom effect when hovered */
+}
+/* Product Title */
+.woocommerce-loop-product__title {
+    color: var(--dark-bg); /* Hnedý text ladí s tvojou stránkou */
+    font-weight: 700; /* Zvýraznený nadpis */
+    text-align: center; /* Zarovnanie do stredu */
+    margin: 10px 0; /* Priestor nad a pod textom */
+}
+
+/* Main Content Area */
+.woocommerce-MyAccount-content {
+    background: var(--cream-bg); /* Svetlý a čistý podklad */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Jemný tieň */
+    padding: 2rem; /* Priestor okolo obsahu */
+    color: var(--dark-bg); /* Tmavší text pre lepšiu čitateľnosť */
+    border-radius: 15px; /* Zaoblené okraje */
+    font-size: 1rem; /* Štandardná veľkosť textu */
+    line-height: 1.8; /* Medzery medzi riadkami */
+}
+
+/* Header Styling */
+.woocommerce-MyAccount-content strong {
+    font-size: 1.5rem; /* Väčší text na zvýraznenie */
+    color: var(--dark-bg); /* Akcentová farba */
+    margin-bottom: 1rem; /* Priestor pod nadpisom */
+    display: inline-block;
+}
+
+/* Links Styling */
+.woocommerce-MyAccount-content a {
+    color: var(--dark-bg); /* Akcentová farba */
+    text-decoration: none; /* Bez podčiarknutia */
+    font-weight: 600; /* Hrubšie písmo */
+    transition: color 0.3s ease; /* Plynulý prechod */
+}
+
+.woocommerce-MyAccount-content a:hover {
+    color: var(--dark-bg); /* Tmavší text na hover */
+}
+
+/* Paragraph Styling */
+.woocommerce-MyAccount-content p {
+    font-size: 1.1rem; /* Väčší text pre čitateľnosť */
+    line-height: 1.8; /* Vzdialenosť medzi riadkami */
+    margin: 1rem 0; /* Priestor okolo odstavcov */
+}
+
+/* Navigation Styling */
+.woocommerce-MyAccount-navigation {
+    background: var(--dark-bg); /* Tmavé pozadie pre kontrast */
+    border-radius: 15px; /* Zaoblené rohy */
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Vzdialenosť medzi položkami */
+}
+
+/* Navigation Items */
+.woocommerce-MyAccount-navigation ul {
+    list-style: none; /* Bez odrážok */
+    padding: 0;
+    margin: 0;
+}
+
+.woocommerce-MyAccount-navigation a {
+    color: var(--dark-bg); /* Tmavý text */
+    background: var(--cream-bg); /* Krémové pozadie */
+    padding: 0.8rem 1rem; /* Padding for clickable area */
+    border-radius: 10px; /* Smooth rounded buttons */
+    font-size: 1rem;
+    font-weight: 500;
+    display: block; /* Ensure full area is clickable */
+    text-align: center;
+    text-decoration: none; /* No underline */
+    margin-bottom: 1rem; /* Add space below each item */
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.woocommerce-MyAccount-navigation a:hover {
+    background: var(--red-accent); /* Akcentová farba na hover */
+    color: var(--light-bg); /* Svetlý text na hover */
+    transform: scale(1.05); /* Jemné zväčšenie */
+}
+
+ 
+
+
+
+
+
+
+
+
+
+.product {
+    background-color: var(--cream-bg); /* Svetlé pozadie pre karty */
+    border: 1px solid #ddd; /* Jemný okraj */
+    border-radius: 8px; /* Okrúhle rohy */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Jemný tieň */
+    overflow: hidden; /* Zabezpečí, že obsah nepresahuje */
+    padding: 36px; /* Priestor okolo obsahu */
+    text-align: center; /* Zarovnanie na stred */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efekt pri hover */
+    max-width: 1400px;
+    justify-content: center;
+
+}
+
+.product img {
+    max-width: 100%; /* Obrázok sa prispôsobí veľkosti karty */
+    height: auto;
+    margin-bottom: 12px; /* Priestor pod obrázkom */
+    border-radius: 6px; /* Jemné okrúhlenie rohov obrázkov */
+}
+
+.product h2 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333; /* Farba názvu produktu */
+    margin: 12px 0; /* Medzera okolo názvu */
+    line-height: 1.4;
+}
+
+.product .price {
+    font-size: 1rem;
+    color: var(--dark-bg); /* Farba ceny (tvoja špecifikovaná farba) */
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+.wc-forward {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #000000; /* Biely text pre kontrast */
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    border: none; /* Odstránenie predvoleného rámu */
+    border-radius: 5px; /* Jemné zaoblenie rohov */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Efekty pri hover */
+    text-decoration: none; /* Odstránenie podčiarknutia */
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.wc-tab {
+    color: #000;
+}
+bdi {
+    color: var(--dark-bg);
+    font-size: larger;
+}
+
+
+
+.button.product_type_simple.add_to_cart_button.ajax_add_to_cart {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--red-accent); /* Použitie definovanej premennej */
+    color: #fff; /* Biely text pre kontrast */
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    border: none; /* Odstránenie predvoleného rámu */
+    border-radius: 5px; /* Jemné zaoblenie rohov */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Efekty pri hover */
+    text-decoration: none; /* Odstránenie podčiarknutia */
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.button.product_type_simple.add_to_cart_button.ajax_add_to_cart:hover {
+    background-color: var(--dark-bg);
+    transform: translateY(-3px); /* Jemné zdvihnutie tlačidla pri hover */
+}
+
+.button.product_type_simple.add_to_cart_button.ajax_add_to_cart:active {
+    transform: translateY(0); /* Návrat tlačidla pri kliknutí */
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.2); /* Jemný stlačený efekt */
+}
+
+button.single_add_to_cart_button.button.alt {
+    display: inline-block;
+    padding: 12px 24px; /* Väčšie tlačidlo pre lepšiu viditeľnosť */
+    background-color: var(--red-accent); /* Použitie premennej pre červenú farbu */
+    color: #fff; /* Biely text pre dobrý kontrast */
+    font-size: 1rem; /* Trochu väčšie písmo */
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    border: none; /* Odstránenie rámu */
+    border-radius: 5px; /* Jemné zaoblenie rohov */
+    cursor: pointer;
+    text-decoration: none; /* Odstránenie podčiarknutia */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Efekty pri hover */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Jemný tieň */
+}
+
+button.single_add_to_cart_button.button.alt:hover {
+    background-color: var(--dark-bg);
+    transform: translateY(-2px); /* Zdvíha tlačidlo */
+}
+
+button.single_add_to_cart_button.button.alt:active {
+    transform: translateY(0); /* Návrat do pôvodnej pozície pri kliknutí */
+    box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.2); /* Efekt stlačenia */
+}
+
+
+
+
+
+
+
+.summary.entry-summary {
+    background-color: #f9f9f9; /* Svetlosivý podklad pre jemný vzhľad */
+    border-radius: 10px; /* Zaoblené rohy */
+    padding: 20px; /* Priestor vo vnútri sekcie */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Jemný tieň pre efekt hĺbky */
+    font-family: 'Arial', sans-serif; /* Čitateľný a moderný font */
+    line-height: 1.6; /* Zvýšené riadkovanie pre lepšiu čitateľnosť */
+    color: #333; /* Jemná čierna farba textu */
+    margin-bottom: 30px; /* Priestor pod touto sekciou */
+}
+
+.summary.entry-summary h1, 
+.summary.entry-summary h2, 
+.summary.entry-summary h3 {
+    font-size: 1.8rem; /* Zvýraznenie nadpisov */
+    font-weight: bold; /* Silné nadpisy */
+    color: var(--red-accent); /* Červená farba nadpisov na zvýraznenie */
+    margin-bottom: 10px; /* Priestor pod nadpismi */
+}
+
+.summary.entry-summary p {
+    font-size: 1rem; /* Štandardná veľkosť textu */
+    margin-bottom: 15px; /* Priestor medzi odsekmi */
+}
+
+.summary.entry-summary a {
+    color: var(--red-accent); /* Červená farba pre odkazy */
+    text-decoration: none; /* Bez podčiarknutia */
+    font-weight: bold; /* Zvýraznené odkazy */
+    transition: color 0.3s ease; /* Plynulý prechod farby pri hover */
+}
+
+.summary.entry-summary a:hover {
+    color: #000; /* Zmena farby odkazu pri hover na čiernu */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Container Styling */
+.container.container-cart.text-center {
+    max-width: 1200px; /* Obmedzuje šírku kontajnera */
+    margin: 0 auto; /* Centrovanie na stránke */
+    padding: 20px; /* Priestor vo vnútri kontajnera */
+    background-color: var(--cream-bg); /* Jemné pozadie */
+    border-radius: 10px; /* Okrúhle rohy */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Jemný tieň */
+    text-align: center; /* Centrovanie textu */
+    color: var(--dark-bg); /* Farba textu */
+    overflow: hidden; /* Zabránenie pretečeniu obsahu */
+}
+
+/* Headings inside the container */
+.container.container-cart.text-center h1,
+.container.container-cart.text-center h2 {
+    font-size: 1.8rem; /* Zvýraznenie nadpisov */
+    color: var(--dark-bg); /* Tmavá farba nadpisu */
+    margin-bottom: 15px; /* Priestor pod nadpisom */
+}
+
+/* Paragraphs inside the container */
+.container.container-cart.text-center p {
+    font-size: 1.1rem; /* Veľkosť textu pre lepšiu čitateľnosť */
+    line-height: 1.6; /* Medzera medzi riadkami */
+    margin-bottom: 20px; /* Priestor pod textom */
+}
+
+/* Buttons inside the container */
+.container.container-cart.text-center .button {
+    background-color: var(--red-accent);
+    color: var(--light-bg);
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: inline-block; /* Zabraňuje tlačidlu roztiahnuť sa na celú šírku */
+    margin: 10px; /* Priestor medzi tlačidlami */
+}
+
+.container.container-cart.text-center .button:hover {
+    background-color: var(--dark-bg);
+    transform: scale(1.05);
+}
+
+/* Spacing for elements inside the container */
+.container.container-cart.text-center > *:not(:last-child) {
+    margin-bottom: 20px; /* Priestor medzi elementami */
+}
+
+/* Styling odkazov vo vnútri kontajnera */
+.container.container-cart.text-center a {
+    color: var(--dark-bg); /* Nastavenie farby textu podľa premenných */
+    text-decoration: none; /* Odstránenie podčiarknutia */
+}
+
+/* Efekt pri hover */
+.container.container-cart.text-center a:hover {
+    color: var(--red-accent); /* Zvýraznenie farby pri prechode myšou */
+    text-decoration: underline; /* Jemné podčiarknutie pri hover */
+}
+
+
+
+
+
+
+
+
+/* Checkout Container Styling */
+.container.container-checkout.text-center {
+    max-width: 1200px; /* Obmedzená šírka pre lepšie rozloženie */
+    margin: 0 auto; /* Centrovanie na stránke */
+    padding: 30px; /* Vnútorný priestor */
+    background-color: var(--cream-bg); /* Svetlé pozadie pre čistý vzhľad */
+    border-radius: 15px; /* Jemne zaoblené rohy */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Jemný tieň pre zvýraznenie */
+    text-align: center; /* Centrovanie textu */
+    color: var(--dark-bg); /* Farba textu */
+}
+
+/* Checkout Headings */
+.container.container-checkout.text-center h1,
+.container.container-checkout.text-center h2 {
+    font-size: 2rem; /* Zvýraznenie hlavných nadpisov */
+    color: var(--dark-bg); /* Tmavá farba na kontrast */
+    margin-bottom: 20px; /* Priestor pod nadpisom */
+}
+
+/* Checkout Paragraphs */
+.container.container-checkout.text-center p {
+    font-size: 1.2rem; /* Väčšia veľkosť textu pre čitateľnosť */
+    line-height: 1.8; /* Medzera medzi riadkami */
+    margin-bottom: 20px; /* Priestor pod odsekom */
+}
+
+/* Checkout Form Styling */
+.container.container-checkout.text-center form {
+    width: 100%; /* Šírka formulára */
+    max-width: 900px; /* Obmedzená šírka pre lepšie rozloženie */
+    margin: 0 auto; /* Centrovanie formulára */
+}
+
+/* Input Fields */
+.container.container-checkout.text-center input,
+.container.container-checkout.text-center select,
+.container.container-checkout.text-center textarea {
+    width: 100%; /* Pole vyplní celý kontajner */
+    padding: 10px;
+    margin-bottom: 20px; /* Priestor medzi poľami */
+    border: 1px solid #ddd; /* Jemná hranica */
+    border-radius: 5px; /* Okrúhle rohy */
+    background-color: #fff; /* Svetlé pozadie pre čistotu */
+    font-size: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Jemný tieň */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container.container-checkout.text-center input:focus,
+.container.container-checkout.text-center select:focus,
+.container.container-checkout.text-center textarea:focus {
+    border-color: var(--red-accent); /* Zvýraznenie pri fokusovaní */
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.2); /* Svetelný efekt pri fokusovaní */
+}
+
+/* Buttons */
+.container.container-checkout.text-center .button {
+    background-color: var(--red-accent);
+    color: var(--light-bg);
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 20px;
+    display: inline-block; /* Pre správnu veľkosť tlačidla */
+}
+
+.container.container-checkout.text-center .button:hover {
+    background-color: var(--dark-bg);
+    transform: scale(1.05);
+}
+
+/* Spacing for Elements */
+.container.container-checkout.text-center > *:not(:last-child) {
+    margin-bottom: 20px; /* Medzery medzi elementami */
+}
+
+/* Container for the images */
+.gallery-image-container {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center;     /* Center vertically */
+    height: 100%;            /* Ensure the container takes full height */
+}
+
+/* Gallery Image */
+.gallery-image {
+    width: auto;           /* Maintain aspect ratio */
+    height: 100%;          /* Set height to fill the container */
+    max-height: 100%;      /* Ensure image doesn't overflow */
+    transition: transform 0.2s ease-in-out;
+}
+
+.gallery-image:hover {
+    transform: scale(1.1);
+}
+
+.gallery-image-container {
+    width: 100%; /* Ensure the container is full width */
+    height: 200px; /* Set a fixed height for all images */
+    overflow: hidden; /* Hide any part of the image that overflows */
+    position: relative; /* Make the container position relative for child element positioning */
+}
+
+.gallery-image {
+    width: 100%; /* Make the image fill the width of the container */
+    height: 100%; /* Make the image fill the height of the container */
+    object-fit: cover; /* Ensure the image covers the container without stretching */
+    transition: transform 0.3s ease; /* Smooth transition for zoom effect */
+}
+
+.gallery-image-container:hover .gallery-image {
+    transform: scale(1.1); /* Slight zoom effect when hovered */
+}
+
+   /* The Modal (background) */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.8);
+        padding-top: 60px;
+    }
+
+    /* Modal Content */
+    .modal-content {
+        margin: auto;
+        display: block;
+        width: 80%;
+        max-width: 700px;
+    }
+
+    /* Close Button */
+    .close {
+        position: absolute;
+        top: 15px;
+        right: 35px;
+        color: #fff;
+        font-size: 40px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #bbb;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    /* Next & Previous Buttons */
+    .prev, .next {
+        position: absolute;
+        top: 50%;
+        padding: 16px;
+        color: #fff;
+        font-weight: bold;
+        font-size: 20px;
+        cursor: pointer;
+        user-select: none;
+        transition: 0.3s ease;
+    }
+
+    .prev {
+        left: 0;
+        border-radius: 3px 0 0 3px;
+    }
+
+    .next {
+        right: 0;
+        border-radius: 0 3px 3px 0;
+    }
+
+    .prev:hover, .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    /* Image Gallery Style */
+    .gallery-image-container {
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+    }
+
+    .gallery-image {
+        width: 100%;
+        height: auto;
+        transition: transform 0.2s ease-in-out;
+    }
+
+
+    .gallery-image:hover {
+        transform: scale(1.1);
+    }
+
+    .modal-content {
+        display: flex;
+        justify-content: center; /* Horizontálne centrovanie */
+        align-items: flex-start; /* Umiestniť obrázok na začiatok (hore) */
+        margin-top: 120px;
+        max-width: 55%;
+    }
+    
+    .btn-red-bg i {
+        margin-left: 8px; /* Space between text and arrow */
+        font-size: 18px;  /* Adjust arrow size */
+    }
+
+    .scroll-down-arrow {
+        font-size: 36px;  /* Adjust size as needed */
+        animation: bounce 1.5s infinite;  /* Add animation */
+    }
+    
+    @keyframes bounce {
+        0%, 100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(15px); /* Move down */
+        }
+    }
+
+    .hero-video-link {
+        display: block;
+        position: relative;
+    }
+    
+    .hero-video {
+        width: 100%;
+        height: auto;
+    }
+    
+    .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .scroll-down-arrow {
+        font-size: 4rem;
+        position: absolute;
+        bottom: 100px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: var(--red-accent);
+    }
+    
+    .page-title {
+        display: flex;
+        text-align: start;
+    }
+
+    .products.columns-4 .li{
+        padding-top: 50px;
+    }
+
+.category-icons-section {
+    padding-bottom: 100px;
+    padding-top: 50px;
+}
+
+main p {
+    font-size: 1.5rem;
+    text-align: justify;
+}
+
+.container-gallery {
+    margin-top: 250px;
+
+}
+
+/* 
+#about-1, #about-3, #about-5 {
+    display: flex;
+    justify-content: center;
+    background-color: var(--cream-bg);
+    min-height: 1000px;
+    color: var(--dark-bg);
+} */
+
+.section-image {
+    border-radius: 10px; /* Adjust the radius as needed */
+    overflow: hidden;    /* Ensures that the image is contained within the rounded corners */
+    max-width: 100%;      /* Ensures the image doesn't overflow */
+    height: auto;         /* Maintains the aspect ratio */
+    transition: transform 0.3s ease-in-out; /* Optional: Adds a smooth zoom-in effect */
+}
+
+main {
+    padding-top: 150px;
+}
+
+body.home main {
+    padding-top: 0px;
+}
+
+.contact-form{
+    display: flex;
+    justify-content: center; /* Align horizontally */
+    align-items: center;
+    margin-top: 50px;
+}
+
+.form {
+    background-color: #EFEAE4;
+    border: none;
+    border-radius: 4px;
+    width: 80vh;
+    margin: 5px 0;   
+}
+
+.checkbox {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Blog container */
+.blog-card {
+    background-color: #f5f5f5; /* Light beige background */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 380px;
+}
+
+.blog-card a {
+    text-decoration: none;
+    color: #333;
+}
+
+.blog-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.blog-meta {
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 15px;
+}
+
+.blog-excerpt {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+
+
+/* Single blog detail */
+.single-blog-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: left;
+}
+
+.single-blog-image {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.blog-content {
+    font-size: 1.2rem;
+    line-height: 1.8;
+}
+
+.container-contact {
+    margin-top: 200px;
+}
+
+
+
+
+
+
+
+
+/* Kontejner blogu */
+.blog-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+
+}
+
+/* Riadok a karty blogov */
+
+
+
+.blog-card {
+    display: flex;
+    flex-direction: column; /* Obsah bude usporiadaný vertikálne */
+    background-color: var(--cream-bg);
+    border: 1px solid #ddd; /* Jemný okraj */
+    border-radius: 8px; /* Okrúhle rohy */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Jemný tieň */
+    overflow: hidden; /* Zabezpečí, že obsah nepresahuje */
+    padding: 16px; /* Priestor okolo obsahu */
+    text-align: center; /* Zarovnanie na stred */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efekt pri hover */
+    height: 94%; /* Všetky karty budú mať rovnakú výšku */
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+
+}
+
+/* Obrázok karty */
+.card-img-top {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+
+/* Telo karty */
+.blog-excerpt {
+    padding: 15px;
+    text-align: justify;
+    display: flex;
+    flex-direction: column; /* Obsah bude usporiadaný vertikálne */
+    flex-grow: 1; /* Zabezpečí, že text zaberie voľné miesto */
+}
+
+.blog-excerpt h5 {
+    font-size: 20px;
+    color: var(--red-accent);
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.blog-excerpt p {
+    font-size: 16px;
+    margin-bottom: 15px;
+    line-height: 1.5;
+    text-align: justify;
+}
+
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+a.btn-red-bg {
+    color: var(--light-bg);
+}
+
+
+
+
+
+
+
+
+
+/* General container */
+.single-container {
+    padding-top: 150px;
+    width: 1400px;
+    margin: 0 auto;
+
+}
+
+/* Post content layout */
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Post card styling */
+.post-card {
+    background-color: var(--cream-bg);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 70px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+
+
+/* Post meta information (date, author) */
+.post-meta {
+    font-size: 1rem;
+    color: #888;
+    margin-bottom: 20px;
+}
+
+/* Post content (main body) */
+.post-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #333;
+}
+
+.featured-image {
+    max-width: 100%; /* Obrázky sa prispôsobia šírke kontajnera */
+    border-radius: 8px; /* Obrázky sa zlúčia so zaoblenými rohmi */
+    margin-top: 1.5rem; /* Priestor nad obrázkom */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.post-image {
+    max-width: 100%; /* Obrázky sa prispôsobia šírke kontajnera */
+    border-radius: 8px; /* Obrázky sa zlúčia so zaoblenými rohmi */
+    margin: 1.5rem; /* Priestor nad obrázkom */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+/* Comments section */
+.post-comments {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 2px solid #f1f1f1;
+}
+
+.post-comments h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Comment list */
+.comment-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.comment-body {
+    background-color: var(--cream-bg);
+    padding: 20px;
+    border-radius: 15px;
+}
+
+
+
+
+.comment-form input,
+.comment-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    color: #333;
+}
+
+.comment-form input:focus,
+.comment-form textarea:focus {
+    outline: none;
+    border-color: #579692;
+    box-shadow: 0 0 5px rgba(87, 150, 146, 0.3);
+}
+
+
+
+/* No comments yet message */
+.post-comments p {
+    font-size: 1rem;
+    color: #888;
+    font-style: italic;
+}
+
+
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) #respond input#submit,.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) #respond input#submit, .woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) a.button, .woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) button.button, .woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) input.button, :where(body:not(.woocommerce-block-theme-has-button-styles)):where(:not(.edit-post-visual-editor*)) .woocommerce #respond input#submit, :where(body:not(.woocommerce-block-theme-has-button-styles)):where(:not(.edit-post-visual-editor*)) .woocommerce a.button, :where(body:not(.woocommerce-block-theme-has-button-styles)):where(:not(.edit-post-visual-editor*)) .woocommerce button.button, :where(body:not(.woocommerce-block-theme-has-button-styles)):where(:not(.edit-post-visual-editor*)) .woocommerce input.button {
+    background-color: var(--red-accent); /* Red background */
+    color: var(--light-bg); /* Light text color */
+    border: 2px solid var(--red-accent); /* Red border */
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s; 
+}
+
+input#submit.submit {
+    background-color: var(--red-accent); /* Red background */
+    color: var(--light-bg); /* Light text color */
+    border: 2px solid var(--red-accent); /* Red border */
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s; 
+}
+
+input#submit.submit:hover,
+input#submit.submit:focus {
+    background-color: var(--dark-bg); /* Dark background on hover */
+    color: var(--light-bg); /* Light text color */
+    border-color: var(--dark-bg); /* Dark border on hover */
+}
+
+/* Optional: Add focus outline for accessibility */
+input#submit.submit:focus {
+    outline: 3px solid var(--red-accent); /* Red outline on focus */
+    outline-offset: 2px;
+}
+
+
+
+
+.post-comments {
+    background-color: var(--light-bg); /* Svetlé pozadie pre jemný kontrast */
+    padding: 20px;            /* Priestor okolo obsahu */
+    margin-bottom: 20px;      /* Odstup medzi komentármi */
+    border-radius: 8px;       /* Zaoblené rohy */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Jemný tieň pre efekt hĺbky */
+    border: 1px solid #ddd;   /* Jemné ohraničenie */
+    font-size: 1rem;          /* Štandardná veľkosť textu */
+    color: #333;              /* Tmavší text pre čitateľnosť */
+    line-height: 1.6;         /* Lepšia čitateľnosť textu */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animácie pri hoverovaní */
+}
+
+.post-comments a {
+    color: var(--dark-bg);
+    text-decoration: none; /* Odstránenie podčiarknutia */
+
+}
+
+.comment {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+}
+
+
+h2.post-title{
+    font-weight: 900;
+}
+
+h3.post-comments {
+    font-weight: 600;
+    
+}
+
+div.reply a{
+    background-color: var(--red-accent); /* Red background */
+    color: var(--light-bg); /* Light text color */
+    border: 2px solid var(--red-accent); /* Red border */
+    padding: 8px 18px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.woocommerce-Reviews {
+    color: #000;
+}
+
+.submit {
+    background-color: var(--red-accent); /* Red background */
+    color: var(--light-bg); /* Light text color */
+    border: 2px solid var(--red-accent); /* Red border */
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s; 
+}
+
+.container-shop {
+    padding: 0;
+    margin: 0 auto; /* Horizontálne centrovanie */
+    justify-content: center; /* Horizontálne zarovnanie */
+    align-items: center; /* Vertikálne zarovnanie */
+    text-align: center; /* Pre text */
+  }
+
+
+
+
+
+
+
+
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+
+    .navbar-mobile {
+        background-color: var(--dark-bg);
+        
+    }
+    
+    .navbar-scrolled .navbar-mobile {
+        background-color: var(--cream-bg);
+    }
+
+    .navbar-scrolled .navbar-toggler  {
+        color: var(--dark-bg);
+    }
+
+    .navbar-scrolled .navbar-toggler-icon {
+        color: var(--dark-bg);
+    }
+
+    .svg-color {
+        padding-top: 20px;
+        padding-bottom: 10px;
+    }
+
+
+    .hero-video-container {
+        height: 30vh; /* Smaller height for mobile screens */
+        display: flex; /* Enable Flexbox */
+        justify-content: center; /* Horizontálne centrovanie */
+        align-items: center; /* Vertikálne centrovanie */
+    }
+    
+    .hero-overlay {
+        padding: 0 10px; /* Reduce padding further */
+        font-size: 0.9rem; /* Smaller text for mobile */
+        display: flex; /* Enable Flexbox */
+        flex-direction: column; /* Align items in a column */
+        justify-content: center; /* Center vertically */
+        align-items: center; /* Center horizontally */
+        text-align: center; /* Center text inside the overlay */
+    }
+    
+    .container-category {
+        padding-top: 0; /* Adjust spacing for mobile layout */
+        display: flex; /* Enable Flexbox */
+        justify-content: center; /* Horizontálne centrovanie */
+        align-items: center; /* Vertikálne centrovanie */
+        flex-direction: column; /* Ensure items stack vertically */
+    }
+    
+    .category-icon-item {
+        width: 70px;
+        display: flex; /* Enable Flexbox */
+        justify-content: center; /* Horizontálne centrovanie */
+        align-items: center; /* Vertikálne centrovanie */
+    }
+    
+    .category-text {
+        font-size: 20px;
+        text-align: center; /* Ensure the text is centered */
+    }
+    
+        }
+
+
+/* Responsive Styles for Mobile */
+@media (max-width: 768px) {
+    /* Adjust the text size and layout for smaller screens */
+    .about-section p {
+        font-size: 1rem; /* Smaller text for mobile */
+        line-height: 1.6; /* Increase line height for readability */
+    }
+
+    /* Adjust column layout for smaller screens */
+    .container-aboutus .row {
+        flex-direction: column; /* Stack elements vertically */
+    }
+
+    /* Ensure full width for each column */
+    .container-aboutus .col-12 {
+        width: 100%;
+    }
+
+    /* For even sections (image first), we need to switch the order */
+    .container-aboutus .col-5 {
+        order: 1; /* Text first */
+    }
+
+    .container-aboutus .col-6 {
+        order: 2; /* Image second */
+    }
+
+    /* Adjust image margin to create space between text */
+    .container-aboutus .col-6 img {
+        margin-bottom: 20px; /* Space between image and text */
+    }
+
+    /* For odd sections (text first), the order is already correct */
+    .container-aboutus .col-5 {
+        order: 1; /* Text comes first */
+    }
+
+    .container-aboutus .col-6 {
+        order: 2; /* Image comes second */
+    }
+    
+    /* Optional: Reduce margins for a cleaner mobile look */
+    .about-section {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+
+}
+        
+
+
+
+@media (max-width: 768px) {
+    .gallery-image-container {
+        overflow: hidden; /* Skryje časti obrázka, ktoré presahujú */
+        width: 380px    ;/* Každý kontajner bude zaberať tretinu šírky obrazovky */
+        height: 120px; /* Používa padding pre pomer strán */
+        padding-bottom: 33.3%; /* Štvorcový pomer kontajnera */
+        display: flex; /* Flexbox pre zarovnanie */
+        justify-content: center; /* Horizontálne zarovnanie obrázka */
+        align-items: center; /* Vertikálne zarovnanie obrázka */
+        margin: 0; /* Odstránenie medzier medzi kontajnermi */
+     
+    }
+
+
+    
+
+}
+
+@media (max-width: 768px) {
+    .partnery {
+        width: 110px; /* Adjust the size for mobile screens */
+        height: auto;
+    }
+
+  
+   
+    .form {
+        background-color: #EFEAE4;
+        border: none;
+        border-radius: 4px;
+        width: 30vh;
+        margin: 5px 0;   
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    .about-title {
+        padding-left: 15px;
+    }
+
+
+}
+
+@media (max-width: 1600px) {
+.gallery-image {
+    min-width: 480px;
+}
+
+.about-section p {
+    font-size: 1rem; /* Smaller text for mobile */
+    line-height: 1.6; /* Increase line height for readability */
+}
+
+/* Adjust column layout for smaller screens */
+.container-aboutus .row {
+    flex-direction: column; /* Stack elements vertically */
+}
+
+/* Ensure full width for each column */
+.container-aboutus .col-12 {
+    width: 100%;
+}
+
+/* For even sections (image first), we need to switch the order */
+.container-aboutus .col-5 {
+    order: 1; /* Text first */
+}
+
+.container-aboutus .col-6 {
+    order: 2; /* Image second */
+}
+
+/* Adjust image margin to create space between text */
+.container-aboutus .col-6 img {
+    margin-bottom: 20px; /* Space between image and text */
+}
+
+/* For odd sections (text first), the order is already correct */
+.container-aboutus .col-5 {
+    order: 1; /* Text comes first */
+}
+
+.container-aboutus .col-6 {
+    order: 2; /* Image comes second */
+}
+
+/* Optional: Reduce margins for a cleaner mobile look */
+.about-section {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.hero-video-container {
+    height: 30vh; /* Smaller height for mobile screens */
+    display: flex; /* Enable Flexbox */
+    justify-content: center; /* Horizontálne centrovanie */
+    align-items: center; /* Vertikálne centrovanie */
+}
+
+.hero-overlay {
+    padding: 0 10px; /* Reduce padding further */
+    font-size: 0.9rem; /* Smaller text for mobile */
+    display: flex; /* Enable Flexbox */
+    flex-direction: column; /* Align items in a column */
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    text-align: center; /* Center text inside the overlay */
+}
+
+.container-category {
+    padding-top: 0; /* Adjust spacing for mobile layout */
+    display: flex; /* Enable Flexbox */
+    justify-content: center; /* Horizontálne centrovanie */
+    align-items: center; /* Vertikálne centrovanie */
+    flex-direction: column; /* Ensure items stack vertically */
+}
+
+.category-icon-item {
+    width: 70px;
+    display: flex; /* Enable Flexbox */
+    justify-content: center; /* Horizontálne centrovanie */
+    align-items: center; /* Vertikálne centrovanie */
+}
+
+.category-text {
+    font-size: 20px;
+    text-align: center; /* Ensure the text is centered */
+}
+
+.form {
+
+    width: 50vh;
+    margin: 5px 0;   
+}
+
+}
+
