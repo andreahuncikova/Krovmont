@@ -1,4 +1,15 @@
 <?php
+
+
+function update_admin_email() {
+    $user_id = 1; // ID admin účtu, zvyčajne 1
+    $new_email = 'a.huncikova@gmail.com';
+    wp_update_user( array( 'ID' => $user_id, 'user_email' => $new_email ) );
+}
+add_action( 'init', 'update_admin_email' );
+
+
+
 // Enqueue Styles and Scripts
 function krovmont_load_resources() {
     // Bootstrap CSS

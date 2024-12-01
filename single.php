@@ -3,7 +3,7 @@
 get_header(); 
 ?>
 
-<div class="single-container">
+<div class="single-container container">
     <div class="content">
         <?php if (have_posts()): ?>
             <?php while (have_posts()): the_post(); ?>

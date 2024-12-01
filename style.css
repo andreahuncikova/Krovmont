@@ -934,7 +934,7 @@ body.home main {
     padding: 20px;
     margin: 20px 0;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 380px;
+    width: 370px;
 }
 
 .blog-card a {
@@ -998,6 +998,7 @@ body.home main {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+    justify-content: center;
 
 }
 
@@ -1313,17 +1314,67 @@ div.reply a{
 
 
 
+  /* Base Styles for Larger Screens */
+.post-card {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .post-title {
+    font-size: 2.5rem;
+  }
+  
+  .post-meta {
+    font-size: 1rem;
+    color: #888;
+  }
+  
+  .post-content {
+    margin-top: 30px;
+  }
+  
+  .wp-block-columns {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .wp-block-column {
+    flex: 1;
+    padding: 10px;
+  }
+  
+  .wp-block-image {
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+  }
+  
+  .commentlist {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .comment {
+    margin-bottom: 20px;
+  }
+  
+  .comment-author {
+    font-weight: bold;
+  }
+  
+  .comment-meta {
+    font-size: 0.9rem;
+    color: #777;
+  }
 
 
-
-/* Adjustments for smaller screens */
-@media (max-width: 768px) {
-
+  @media (max-width: 983px) {
     .navbar-mobile {
         background-color: var(--dark-bg);
         
-    }
-    
+       
+    } 
     .navbar-scrolled .navbar-mobile {
         background-color: var(--cream-bg);
     }
@@ -1334,12 +1385,32 @@ div.reply a{
 
     .navbar-scrolled .navbar-toggler-icon {
         color: var(--dark-bg);
+        
     }
+    }
+
+
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+
+    .navbar-mobile {
+        background-color: var(--dark-bg);
+        
+        
+    }
+
+    .pt-5 {
+        padding-top: 0 !important; /* Odstráni padding-bottom na malých obrazovkách */
+    }
+    
+
 
     .svg-color {
         padding-top: 20px;
         padding-bottom: 10px;
     }
+
+
 
 
     .hero-video-container {
@@ -1429,6 +1500,7 @@ div.reply a{
         margin-bottom: 20px;
     }
 
+   
 
 }
         
@@ -1438,7 +1510,7 @@ div.reply a{
 @media (max-width: 768px) {
     .gallery-image-container {
         overflow: hidden; /* Skryje časti obrázka, ktoré presahujú */
-        width: 380px    ;/* Každý kontajner bude zaberať tretinu šírky obrazovky */
+        max-width: 280px    ;/* Každý kontajner bude zaberať tretinu šírky obrazovky */
         height: 120px; /* Používa padding pre pomer strán */
         padding-bottom: 33.3%; /* Štvorcový pomer kontajnera */
         display: flex; /* Flexbox pre zarovnanie */
@@ -1476,6 +1548,33 @@ div.reply a{
     .about-title {
         padding-left: 15px;
     }
+
+    .text-start.mt-5.pt-5.mt-md-10.mx-auto {
+        padding-top: 0 !important; /* Odstráni padding-top na mobiloch */
+    }
+
+    .about-section {
+        padding-bottom: 0;
+    }
+
+
+    .pb-5 {
+        padding-bottom: 0 !important; /* Odstráni padding-bottom na malých obrazovkách */
+    }
+
+    .wpcf7-form-control.wpcf7-email.wpcf7-validates-as-required.wpcf7-text.wpcf7-validates-as-email{
+        width: 30vh;
+    }
+
+    .blog-container{
+        max-width: 1200px;
+    margin: 0 auto; /* Toto už zabezpečuje horizontálne centrovanie */
+    padding: 20px;
+    display: flex; /* Pridáme flexbox */
+    justify-content: center; /* Zarovná obsah na stred horizontálne */
+    align-items: center; /* Zarovná obsah na stred vertikálne */
+}
+
 
 
 }
@@ -1530,7 +1629,7 @@ div.reply a{
 }
 
 .hero-video-container {
-    height: 30vh; /* Smaller height for mobile screens */
+    max-height: 80vh; /* Smaller height for mobile screens */
     display: flex; /* Enable Flexbox */
     justify-content: center; /* Horizontálne centrovanie */
     align-items: center; /* Vertikálne centrovanie */
@@ -1568,9 +1667,36 @@ div.reply a{
 
 .form {
 
-    width: 50vh;
+    max-width: 50vh;
     margin: 5px 0;   
 }
 
+
+.fa.fa-arrow-down.scroll-down-arrow {
+    display: none; /* Skryje šípku */
 }
+
+
+
+}
+
+  
+  /* Media query for small devices */
+  @media (max-width: 575px) {
+    .single-container {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+  
+  /* Prevents large content on small screens */
+  @media (min-width: 576px) {
+    .single-container {
+      width: 100%;
+      justify-content: center;
+
+    }
+  }
+
+  
 
